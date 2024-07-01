@@ -1,3 +1,5 @@
+local setup = require('setup.bulk')
+
 return {
 	-- the colorscheme should be available when starting Neovim
 	{
@@ -31,10 +33,7 @@ return {
 	{
 		"jiaoshijie/undotree",
 		dependencies = "nvim-lua/plenary.nvim",
-		config = true,
-		keys = { -- load the plugin only when using it's keybinding:
-			{ "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
-		},
+		config = setup.setup_undotree
 	},
 	{ "folke/which-key.nvim" },
 }

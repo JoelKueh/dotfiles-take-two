@@ -4,7 +4,6 @@ function M.setup_lsp()
 	local lspconf = require("lspconfig")
 	local mason = require("mason")
 	local masonconf = require("mason-lspconfig")
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 	mason.setup()
 	masonconf.setup()
@@ -41,15 +40,12 @@ function M.setup_lsp()
 			Lua = {}
 		}
 	})
-
-	-- Remap controls
-	vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 end
 
 function M.setup_cmp()
 	local cmp = require("cmp")
 
-	vim.opt.completeopt = { "menu", "menuone", "noselect" }
+	vim.opt.completeopt = { "menu", "menuone" }
 
 	cmp.setup({
 		snippet = {
@@ -58,7 +54,7 @@ function M.setup_cmp()
 			end,
 		},
 		window = {
-			
+
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -67,7 +63,7 @@ function M.setup_cmp()
 			['<C-f>'] = cmp.mapping.scroll_docs(4),
 			['<C-Space>'] = cmp.mapping.complete(),
 			['<C-e>'] = cmp.mapping.abort(),
-			['<CR>'] = cmp.mapping.confirm({ select = true }),
+			['<C-y>'] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = {
 			{ name = "nvim_lsp" },

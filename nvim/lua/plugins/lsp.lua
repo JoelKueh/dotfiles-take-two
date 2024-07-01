@@ -5,6 +5,7 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
+		lazy = true,
 		dependencies = {
 			'saadparwaiz1/cmp_luasnip'
 		}
@@ -12,25 +13,25 @@ return {
 	-- nvim-cmp
 	{
 		"hrsh7th/nvim-cmp",
+		lazy = true,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-omni"
 		},
-		config = function()
-			lsp.setup_cmp()
-		end,
+		config = lsp.setup_cmp
 	},
 	-- lspconfig
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile", "VeryLazy" },
 		dependencies = {
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim"
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/nvim-cmp",
+			"L3MON4D3/LuaSnip",
 		},
-		config = function()
-			lsp.setup_lsp()
-		end,
+		config = lsp.setup_lsp
 	},
 }
