@@ -29,12 +29,43 @@ return {
 	-- load later and are not important for the initial UI
 	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 
-	-- undotree
 	{
-		"jiaoshijie/undotree",
-		dependencies = "nvim-lua/plenary.nvim",
-		config = setup.setup_undotree
+		"folke/which-key.nvim",
+		opts = {
+			plugins = { spelling = true },
+			defaults = {
+				mode = { "n", "v" },
+				["g"] = { name = "+goto" },
+				["gs"] = { name = "+surround" },
+				--["z"] = { name = "+fold" },
+				["]"] = { name = "+next" },
+				["["] = { name = "+prev" },
+				--["<leader><tab>"] = { name = "+tabs" },
+				--["<leader>b"] = { name = "+buffer" },
+				--["<leader>c"] = { name = "+code" },
+				["<leader>p"] = { name = "+pick/find" },
+				["<leader>py"] = { name = "+pick/symbols" },
+				["<leader>g"] = { name = "+git" },
+				["<leader>gh"] = { name = "+hunks", ["_"] = "which_key_ignore" },
+				--["<leader>q"] = { name = "+quit/session" },
+				--["<leader>s"] = { name = "+search" },
+				--["<leader>u"] = { name = "+ui" },
+				--["<leader>w"] = { name = "+windows" },
+				--["<leader>x"] = { name = "+diagnostics/quickfix" },
+			},
+		}
 	},
-	{ "folke/which-key.nvim" },
+	-- lualine
+	{
+		'nvim-lualine/lualine.nvim',
+		opts = setup.opts_lualine
+	},
+	-- dashboard-nvim
+	{
+		'nvimdev/dashboard-nvim',
+		event = 'VimEnter',
+		config = setup.setup_dashboard,
+		dependencies = { {'nvim-tree/nvim-web-devicons'}}
+	}
 }
 

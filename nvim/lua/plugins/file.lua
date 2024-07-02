@@ -12,16 +12,52 @@ return {
 	-- telescope
 	{
 		'nvim-telescope/telescope.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim' },
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'debugloop/telescope-undo.nvim',
+		},
 		config = setup.setup_telescope
 	},
-	-- persistnace
+	-- persistence
 	{
 		"folke/persistence.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			-- add any custom options here
-		},
 		config = setup.setup_persistence
 	},
+	-- gitsigns
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			signs = {
+				add = { text = "▎" },
+				change = { text = "▎" },
+				delete = { text = "" },
+				topdelete = { text = "" },
+				changedelete = { text = "▎" },
+				untracked = { text = "▎" },
+			},
+			signs_staged = {
+				add = { text = "▎" },
+				change = { text = "▎" },
+				delete = { text = "" },
+				topdelete = { text = "" },
+				changedelete = { text = "▎" },
+			},
+			on_attach = setup.attach_gitsigns,
+		}
+	},
+	-- git-messenger
+	{
+		'rhysd/git-messenger.vim',
+		event = "BufEnter"
+	},
+	-- todo-comments
+	{
+		'folke/todo-comments.nvim',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+		},
+		opts = {
+
+		}
+	}
 }

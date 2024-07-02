@@ -1,13 +1,16 @@
 
 local M = {}
 
-function M.setup_undotree()
-	require('undotree')
-	vim.keymap.set('n', '<leader>u', require('undotree').toggle, {
-		noremap = true,
-		silent = true,
-		desc = "Toggle undotree"
-	})
+function M.setup_dashboard()
+	require('dashboard').setup {
+		-- config
+	}
+end
+
+function M.opts_lualine()
+	local lualine = require("lualine_require")
+
+	return {}
 end
 
 return M
