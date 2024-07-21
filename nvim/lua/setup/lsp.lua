@@ -4,6 +4,8 @@ function M.setup_lsp()
 	local lspconf = require("lspconfig")
 	local mason = require("mason")
 	local masonconf = require("mason-lspconfig")
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 	mason.setup()
 	masonconf.setup()
@@ -40,6 +42,10 @@ function M.setup_lsp()
 			Lua = {}
 		}
 	})
+	lspconf.cmake.setup({})
+	lspconf.gdscript.setup(capabilities)
+	lspconf.csharp_ls.setup({})
+	--lspconf.omnisharp.setup({})
 end
 
 function M.setup_cmp()
