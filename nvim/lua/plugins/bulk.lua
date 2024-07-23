@@ -11,7 +11,22 @@ return {
 			vim.cmd([[colorscheme nord]])
 		end,
 	},
-
+	{
+		"neanias/everforest-nvim",
+		event = "VeryLazy"
+	},
+	{
+		"sainnhe/sonokai",
+		event = "VeryLazy"
+	},
+	{
+		"Mofiqul/vscode.nvim",
+		event = "VeryLazy"
+	},
+	{
+		"sainnhe/gruvbox-material",
+		event = "VeryLazy"
+	},
 	{
 		"dstein64/vim-startuptime",
 		cmd = "StartupTime",
