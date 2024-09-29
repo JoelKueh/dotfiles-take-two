@@ -2,7 +2,8 @@
 
 # Install sway, waybar, dunst, fuzzel, etc...
 sudo dnf install -y sway waybar dunst fuzzel pamixer \
-	pulseaudio-utils brightnessctl playerctl
+	pulseaudio-utils brightnessctl playerctl \
+	merkuro
 
 # Link configs to the config directory
 set SCRIPT_DIR (cd (dirname (status --current-filename)); and pwd)

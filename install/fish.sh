@@ -20,13 +20,16 @@ fish fish_config theme choose Nord
 
 # Install Nerd Fonts
 INVOKE_DIR=$(pwd)
-echo $INVOKE_DIR
+
+# DejaVu
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip \
 && cd ~/.local/share/fonts \
 && unzip DejaVuSansMono.zip \
 && rm DejaVuSansMono.zip \
 && fc-cache -fv
-cd $INVOKE_DIR
+
+# Font Awesome
+sudo dnf install -y fontawesome-fonts
 
 # Install OMF
 #set SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )

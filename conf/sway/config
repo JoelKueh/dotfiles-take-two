@@ -231,6 +231,6 @@ xwayland enable
 # Startup Dunst
 exec dunst &
 
-font "DejaVuSansMono Nerd Font" 10
+font pango:DejaVuSansM Nerd Font Mono 10
 
 include /etc/sway/config.d/*
