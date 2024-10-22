@@ -176,9 +176,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Audio
-set $volume_up /home/joel/.config/sway/scripts/change_volume.sh +10
-set $volume_down /home/joel/.config/sway/scripts/change_volume.sh -10
-set $toggle_mute /home/joel/.config/sway/scripts/mute_audio.sh
+set $volume_up $HOME/.config/sway/scripts/change_volume.sh +10
+set $volume_down $HOME/.config/sway/scripts/change_volume.sh -10
+set $toggle_mute $HOME/.config/sway/scripts/mute_audio.sh
 set $toggle_mic_mute pactl set-source-mute toggle
 bindsym --locked XF86AudioMute exec --no-startup-id $toggle_mute
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id $volume_up
@@ -186,10 +186,10 @@ bindsym --locked XF86AudioLowerVolume exec --no-startup-id $volume_down
 bindsym --locked XF86AudioMicMute exec --no-startup-id $toggle_mic_mute
 
 # Playback
-set $switch_player /home/joel/.config/sway/scripts/change_player.sh
+set $switch_player $HOME/.config/sway/scripts/change_player.sh
 set $playback_next playerctl -p playerctld next
 set $playback_prev playerctl -p playerctld previous
-set $playback_pp /home/joel/.config/sway/scripts/playpause.sh
+set $playback_pp $HOME/.config/sway/scripts/playpause.sh
 set $playback_stop playerctl -p playerctld stop
 bindsym --locked XF86AudioPrev exec --no-startup-id $playback_prev
 bindsym --locked XF86AudioNext exec --no-startup-id $playback_next
@@ -197,8 +197,8 @@ bindsym --locked XF86AudioPlay exec --no-startup-id $playback_pp
 bindsym --locked XF86AudioStop exec --no-startup-id $playback_stop
 
 # Display
-set $brightness_up /home/joel/.config/sway/scripts/change_brightness.sh +10%
-set $brightness_down /home/joel/.config/sway/scripts/change_brightness.sh 10%-
+set $brightness_up $HOME/.config/sway/scripts/change_brightness.sh +10%
+set $brightness_down $HOME/.config/sway/scripts/change_brightness.sh 10%-
 bindsym XF86MonBrightnessUp exec --no-starup-id $brightness_up
 bindsym XF86MonBrightnessDown exec --no-starup-id $brightness_down
 
@@ -222,6 +222,12 @@ client.unfocused #2e3440 #434c5e #eceff4
 set $border.focused #eff0f1
 set $border.unfocused #bdc3c7
 set $border.focused #eff0f1
+
+# Set the gtk theme
+exec_always {
+	gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+	gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
+}
 
 # Enable xwayland
 exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
