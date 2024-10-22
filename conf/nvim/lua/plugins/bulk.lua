@@ -95,6 +95,13 @@ return {
 			vim.keymap.set("n", "<Leader>iy", "<cmd>IconPickerYank<cr>", opts)
 			vim.keymap.set("n", "<Leader>ip", "<cmd>IconPickerInsert<cr>", opts)
 		end
+	},
+	-- markdown-preview
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
 	}
 }
 

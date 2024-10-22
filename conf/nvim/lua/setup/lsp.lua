@@ -1,16 +1,7 @@
 local M = {}
 
-function M.setup_lsp()
+local function setup_clangd()
 	local lspconf = require("lspconfig")
-	local mason = require("mason")
-	local masonconf = require("mason-lspconfig")
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
-	mason.setup()
-	masonconf.setup()
-
-	lspconf.rust_analyzer.setup({})
 	lspconf.clangd.setup({
 		cmd = {
 			'clangd',
@@ -18,6 +9,10 @@ function M.setup_lsp()
 		},
 		filetypes = { "c", "cpp" },
 	})
+end
+
+local function setup_lua_ls()
+	local lspconf = require("lspconfig")
 	lspconf.lua_ls.setup({
 		on_init = function(client)
 			local path = client.workspace_folders[1].name
@@ -42,9 +37,39 @@ function M.setup_lsp()
 			Lua = {}
 		}
 	})
+end
+
+local function setup_verible()
+	local lspconf = require("lspconfig")
+	lspconf.verible.setup({
+		cmd = {'verible-verilog-ls', '--rules_config_search'},
+		root_dir = function() return vim.loop.cwd() end
+	})
+end
+
+function M.setup_lsp()
+	local lspconf = require("lspconfig")
+	local mason = require("mason")
+	local masonconf = require("mason-lspconfig")
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+	mason.setup()
+	masonconf.setup()
+
+	-- Helpers for complex setups.
+	setup_clangd()
+	setup_lua_ls()
+	setup_verible()
+
+	-- Simple one line setups.
+	lspconf.rust_analyzer.setup({})
 	lspconf.cmake.setup({})
 	lspconf.gdscript.setup(capabilities)
 	lspconf.csharp_ls.setup({})
+	lspconf.matlab_ls.setup({})
+	lspconf.jdtls.setup({})
+	lspconf.texlab.setup({})
 	--lspconf.omnisharp.setup({})
 end
 
