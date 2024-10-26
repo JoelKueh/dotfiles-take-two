@@ -4,16 +4,16 @@ return {
 	-- the colorscheme should be available when starting Neovim
 	{
 		"gbprod/nord.nvim",
-		event = "VeryLazy"
-	},
-	{
-		"neanias/everforest-nvim",
 		lazy = false,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			-- load the colorscheme here
-			vim.cmd([[colorscheme everforest]])
+			vim.cmd([[colorscheme nord]])
 		end,
+	},
+	{
+		"neanias/everforest-nvim",
+		event = "VeryLazy"
 	},
 	{
 		"sainnhe/sonokai",
