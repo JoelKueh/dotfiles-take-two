@@ -1,8 +1,11 @@
 #!/usr/bin/bash
 
-# Enable the nwg-shell copr repository.
+# Install nwg-shell.
 sudo dnf copr enable -y tofik/nwg-shell
 sudo dnf install -y nwg-shell
+
+# Install the default nwg-shell dotfiles.
+nwg-shell-install -a
 
 # Remove the old configs.
 CONF=$HOME/.config
@@ -41,3 +44,6 @@ ln -s \
 	$NWGDIR/share/nwg-look \
 	$NWGDIR/share/nwg-shell-config \
 	$SHARE
+
+# Set thunar to default file manager.
+xdg-mime default thunar.desktop inode/directory
