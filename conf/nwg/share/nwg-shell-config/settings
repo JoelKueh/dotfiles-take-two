@@ -11,7 +11,7 @@
   "night-temp-low": 4500,
   "night-temp-high": 6500,
   "night-gamma": 1.0,
-  "night-on": true,
+  "night-on": false,
   "terminal": "foot",
   "file-manager": "thunar",
   "editor": "nvim",
