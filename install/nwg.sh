@@ -4,9 +4,6 @@
 sudo dnf copr enable -y tofik/nwg-shell
 sudo dnf install -y nwg-shell
 
-# Install the default nwg-shell dotfiles.
-nwg-shell-install -a
-
 # Remove the old configs.
 CONF=$HOME/.config
 SHARE=$HOME/.local/share
@@ -23,6 +20,9 @@ rm -rf \
 	$CONF/swaync \
 	$SHARE/nwg-look \
 	$SHARE/nwg-shell-config
+
+# Install the default nwg-shell dotfiles.
+nwg-shell-installer -a
 
 # Link the files in the nwg directory to their respective configs.
 SCRIPT=$(realpath "$0")
