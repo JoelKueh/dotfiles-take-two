@@ -24,6 +24,23 @@ rm -rf \
 # Install the default nwg-shell dotfiles.
 nwg-shell-installer -a
 
+# Remove the old configs, again.
+CONF=$HOME/.config
+SHARE=$HOME/.local/share
+rm -rf \
+	$CONF/foot \
+	$CONF/gtk-3.0 \
+	$CONF/gtklock \
+	$CONF/nwg-displays \
+	$CONF/nwg-dock \
+	$CONF/nwg-drawer \
+	$CONF/nwg-look \
+	$CONF/nwg-panel \
+	$CONF/sway \
+	$CONF/swaync \
+	$SHARE/nwg-look \
+	$SHARE/nwg-shell-config
+
 # Link the files in the nwg directory to their respective configs.
 SCRIPT=$(realpath "$0")
 DIR=$(dirname "$SCRIPT")
