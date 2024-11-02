@@ -34,4 +34,10 @@ return {
 		},
 		config = lsp.setup_lsp
 	},
+	-- knap
+	{
+		"frabjous/knap",
+		lazy = false,
+		config = lsp.setup_knap
+	}
 }

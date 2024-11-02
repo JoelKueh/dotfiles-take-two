@@ -3,6 +3,7 @@
 include variables
 include outputs
 include autostart
+include autostart_usr
 include workspaces
 include keyboard
 include pointer
@@ -263,5 +264,11 @@ for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
 for_window [app_id="(?i)(?:firefox|chromium)"] border none
 for_window [title="(?i)(?:copying|deleting|moving)"] floating enable
+
+############    extra input settings   ############
+
+# tablet settings
+# TODO: Create an executor script for this and place on panel.
+exec swaymsg "input 1386:890:Wacom_One_by_Wacom_S_Pen map_to_output DP-2"
 
 popup_during_fullscreen smart

@@ -49,12 +49,12 @@
           "cmd": "azote"
         },
         {
-          "name": "GTK settings",
+          "name": "Look settings",
           "icon": "nwg-look",
           "cmd": "nwg-look"
         },
         {
-          "name": "Displays",
+          "name": "Displays settings",
           "icon": "nwg-displays",
           "cmd": "nwg-displays"
         },
@@ -74,15 +74,15 @@
         "icon": "system-shutdown-symbolic",
         "items": [
           {
-            "name": "Lock",
+            "name": "Lock screen",
             "cmd": "nwg-lock"
           },
           {
-            "name": "Exit sway session",
+            "name": "Exit compositor",
             "cmd": "nwg-dialog -p exit-sway -c \"swaymsg exit\""
           },
           {
-            "name": "Restart",
+            "name": "Reboot",
             "cmd": "nwg-dialog -p reboot -c \"systemctl reboot\""
           },
           {

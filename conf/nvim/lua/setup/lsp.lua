@@ -80,4 +80,25 @@ function M.setup_cmp()
 	})
 end
 
+function M.setup_knap()
+	local knap = require("knap")
+
+	local function map(mode, l, r, desc)
+		vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+	end
+
+	map("n", "<leader>li", knap.process_once, "Knap Process Once")
+	map("n", "<leader>lc", knap.close_viewer, "Knap Close")
+	map("n", "<leader>ll", knap.toggle_autopreviewing, "Knap Toggle Autopreview")
+	map("n", "<leader>lf", knap.forward_jump, "Knap Forward Jump")
+
+	--local gknapsettings = {
+	--	texoutputext = "pdf",
+	--	textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+	--	textopdfviewerlaunch = "mupdf %outputfile%",
+	--	textopdfviewerrefresh = "kill -HUP %pid%"
+	--}
+	--vim.g.knap_settings = gknapsettings
+end
+
 return M

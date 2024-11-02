@@ -72,7 +72,7 @@
   "backgrounds-custom-path": "",
   "backgrounds-use-custom-path": false,
   "background-dirs": [
-    "/usr/share/backgrounds/nwg-shell"
+    "/usr/share/backgrounds/mybackgrounds"
   ],
   "background-dirs-once-set": false,
   "unsplash-width": 1920,
