@@ -57,7 +57,15 @@ return {
 			'nvim-lua/plenary.nvim',
 		},
 		opts = {
-
+			highlight = {
+				pattern = [[.*<(KEYWORDS)\s*]]
+				-- pattern = [[.*<(KEYWORDS)\s*:]]
+			},
+			search = {
+				pattern = [[\b(KEYWORDS)\b]]
+				-- pattern = [[\b(KEYWORDS):]]
+			}
+			-- TODO
 		}
 	}
 }
